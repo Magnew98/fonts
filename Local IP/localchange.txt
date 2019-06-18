@@ -1,0 +1,58 @@
+CODE.PY
+
+
+def dynamic() :
+	p=os.system("sudo nohup python3 setdyn.py")
+	time.sleep(1)
+
+
+def change_ip(ip):   #set new ip address to the one entered
+	global ip_used
+	l=[]
+	i=0                      
+	ip=ppip(ip)
+	ip = (ipsplitter(ip))
+	formated_ip= []
+	for i in range(0,len(ip)):
+		i="".join(ip[i]).lstrip("0")
+		if i == "":
+			i="0"
+		formated_ip.append(i)
+
+	ip=".".join(formated_ip)
+	print(ip_used)
+	if ip in ip_used:
+		disp.fill(0)
+		disp.show()
+		disp.text("IP in use already!",0,8,1)
+		disp.text("try again.",0,16,1)
+		disp.show()
+		main()
+	else:
+		p=os.system("sudo nohup python3 ipc.py "+ip)
+		time.sleep(1)
+		print(ip)
+
+
+
+			if stick.read_adc(0) == 0:
+				change_ip(ip)
+				break
+
+
+
+
+
+
+
+
+
+
+DNS.PY
+
+    p=os.system("sudo rm nohup.out")
+    p=os.system("sudo nohup python3 dnsc.py "+p)
+    time.sleep(5.8)
+	with open("nohup.out") as f:
+		data = f.readlines()
+    c=data
